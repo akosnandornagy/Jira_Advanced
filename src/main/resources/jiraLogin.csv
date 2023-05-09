@@ -1,0 +1,5 @@
+Username,Password,Expected
+asdasd123,{password},unsuccessful
+{username},asdasd123,unsuccessful
+{username},{password},successful
+{username},,unsuccessful
