@@ -11,7 +11,7 @@ public class JiraLogin {
     private WebDriverWait wait;
     By userNameJira = By.xpath("//input[@id='login-form-username']");
     By passwordJira = By.xpath("//input[@id='login-form-password']");
-    By loginBtn = By.xpath("//input[@id='login']");
+    By loginBtn = By.xpath("//input[@id='login-form-submit']");
     By userIcon = By.xpath("//img[@alt='User profile for Auto Tester 52']");
     public JiraLogin(WebDriver driver) {
         this.driver = driver;

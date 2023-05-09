@@ -24,7 +24,7 @@ public class LogInTests {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.get("https://jira-auto.codecool.metastage.net/");
+        driver.get("https://jira-auto.codecool.metastage.net/login.jsp");
         jiraLogin = new JiraLogin(driver);
     }
 
