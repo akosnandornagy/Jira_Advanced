@@ -28,4 +28,10 @@ public class ConfigReader {
     public static String getPassword() {
         return properties.getProperty("jira.password");
     }
+
+    public static String getReporterName() {
+        String username = getUsername();
+        String number = username.replace("automation", "");
+        return "Auto Tester " + number;
+    }
 }
