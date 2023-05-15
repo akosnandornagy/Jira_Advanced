@@ -25,9 +25,13 @@ public class JiraCreateIssueTests {
         jiraLogin.navigateToLoginPage();
         jiraLogin.login(USERNAME, PASSWORD);
 
-        jiraCreateIssue = new JiraCreateIssuePage();
+        JiraCreateIssuePage jiraCreateIssue = new JiraCreateIssuePage();
         jiraCreateIssue.navigateToCreateIssuePage();
         jiraIssuePage = new JiraIssuePage();
+
+        // issue to be deleted = false
+        // in those tests where there is an issue successfully created set to 👉 true
+        // in teardown delete the created issues
     }
 
     @ParameterizedTest

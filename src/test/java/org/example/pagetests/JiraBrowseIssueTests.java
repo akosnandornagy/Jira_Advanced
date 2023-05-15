@@ -28,7 +28,7 @@ public class JiraBrowseIssueTests {
     void browseSuccessfulIssueTests(String link, String issueId){
         jiraBrowseIssues.navigateToUrlOfIssue(link);
 
-        String expected = jiraBrowseIssues.getIssueId();
+        String expected = jiraBrowseIssues.getIssueId(); // instead rename according to feedback 👉 actual
 
         assertEquals(expected, issueId);
     }
@@ -37,7 +37,7 @@ public class JiraBrowseIssueTests {
     void browseUnsuccessfulIssueTests(String link, String errorMessage){
         jiraBrowseIssues.navigateToUrlOfIssue(link);
 
-        String expected = jiraBrowseIssues.errorMessage();
+        String expected = jiraBrowseIssues.errorMessage(); // instead rename according to feedback 👉 actual
 
         assertEquals(expected, errorMessage);
     }
