@@ -3,10 +3,8 @@ package org.example.pagefactory;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class JiraLoginPage extends BasePage {
-    private final WebDriverWait wait;
 
     @FindBy(xpath = "//input[@id='login-form-username']")
     private WebElement usernameInput;
@@ -28,11 +26,6 @@ public class JiraLoginPage extends BasePage {
 
     @FindBy(xpath = "//a[@id='view_profile']")
     private WebElement userProfile;
-
-    public JiraLoginPage() {
-        super();
-        wait = new WebDriverWait(driver, 10);
-    }
 
     public void navigateToLoginPage() {
         driver.get(baseUrl + "/login.jsp");

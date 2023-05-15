@@ -28,11 +28,7 @@ public class JiraIssuePage extends BasePage {
     private WebElement deleteIssueSubmit;
 
     @FindBy(xpath = "//div[@id='aui-flag-container']//div[contains(@class, 'aui-message-success')")
-    private WebElement successMessage; // "MTP-3995 has been deleted."
-
-    public JiraIssuePage() {
-        super();
-    }
+    private WebElement successMessage;
 
     public String getProjectName() {
         return projectName.getText();

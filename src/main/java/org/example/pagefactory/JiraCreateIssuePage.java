@@ -22,9 +22,8 @@ public class JiraCreateIssuePage extends BasePage {
     @FindBy(xpath = "//*[@id='issue-create-submit']")
     private WebElement createButton;
 
-    public JiraCreateIssuePage() {
-        super();
-    }
+    @FindBy(xpath = "//div[@class='aui-message aui-message-error']")
+    private WebElement errorMessage;
 
     public void navigateToCreateIssuePage() {
         driver.get(baseUrl + "/secure/CreateIssue.jspa");
@@ -55,4 +54,14 @@ public class JiraCreateIssuePage extends BasePage {
     public void clickCreateButton() {
         wait.until(ExpectedConditions.elementToBeClickable(createButton)).click();
     }
+
+    public String getErrorText() {
+        return wait.until(ExpectedConditions.visibilityOf(errorMessage)).getText();
+    }
+
+    public String getProjectName() { return wait.until(ExpectedConditions.visibilityOf(projectField)).getAttribute("value"); }
+
+    public String getIssueType() { return wait.until(ExpectedConditions.visibilityOf(issueTypeField)).getAttribute("value"); }
+
+    public String getSummary() { return wait.until(ExpectedConditions.visibilityOf(summaryField)).getAttribute("value"); }
 }
