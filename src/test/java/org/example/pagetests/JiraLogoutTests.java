@@ -24,7 +24,7 @@ public class JiraLogoutTests {
     }
     @Test
     void LogoutTest() {
-    jiraLogout.clickUserIcon();
+    jiraLogout.navigateToLogoutPage();
     jiraLogout.clickLogoutBtn();
     jiraLogout.checkLoginIcon();
     assertEquals("You are now logged out. Any automatic login has also been stopped.", jiraLogout.getLogoutMessage());
