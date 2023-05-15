@@ -25,7 +25,7 @@ public class JiraCreateIssueTests {
         jiraLogin.navigateToLoginPage();
         jiraLogin.login(USERNAME, PASSWORD);
 
-        JiraCreateIssuePage jiraCreateIssue = new JiraCreateIssuePage();
+        jiraCreateIssue = new JiraCreateIssuePage();
         jiraCreateIssue.navigateToCreateIssuePage();
         jiraIssuePage = new JiraIssuePage();
 
