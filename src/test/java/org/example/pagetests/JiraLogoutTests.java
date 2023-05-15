@@ -3,13 +3,12 @@ package org.example.pagetests;
 import org.example.config.ConfigReader;
 import org.example.pagefactory.JiraLoginPage;
 import org.example.pagefactory.JiraLogoutPage;
-import org.example.pagefactory.JiraProfilePage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class JiraLogoutTests {
     WebDriver driver;
@@ -30,8 +29,8 @@ public class JiraLogoutTests {
     void LogoutTest() {
     jiraLogout.clickUserIcon();
     jiraLogout.clickLogoutBtn();
-    jiraLogout.getLogoutMessage();
     jiraLogout.checkLoginIcon();
+    assertEquals("You are now logged out. Any automatic login has also been stopped.", jiraLogout.getLogoutMessage());
     }
 
     @AfterEach

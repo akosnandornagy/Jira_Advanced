@@ -12,6 +12,9 @@ public class JiraIssuePage extends BasePage {
     @FindBy(xpath = "//*[@id='type-val']")
     private WebElement issueType;
 
+    @FindBy(xpath = "//a[@id='key-val']")
+    private WebElement issueId;
+
     @FindBy(xpath = "//*[@id='summary-val']")
     private WebElement summary;
 
@@ -30,6 +33,13 @@ public class JiraIssuePage extends BasePage {
     @FindBy(xpath = "//div[@id='aui-flag-container']//div[contains(@class, 'aui-message-success')")
     private WebElement successMessage;
 
+    @FindBy(xpath = "//*[@id=\"issue-content\"]/div/div/h1")
+    private WebElement errorMessage;
+
+    public void navigateToUrlOfIssue(String url){
+        driver.get(url);
+    }
+
     public String getProjectName() {
         return projectName.getText();
     }
@@ -44,6 +54,16 @@ public class JiraIssuePage extends BasePage {
 
     public String getReporter() {
         return reporter.getText();
+    }
+
+    public String getIssueId(){
+        wait.until(ExpectedConditions.visibilityOf(issueId));
+        return issueId.getText();
+    }
+
+    public String errorMessage(){
+        wait.until(ExpectedConditions.visibilityOf(errorMessage));
+        return errorMessage.getText();
     }
 
     public void deleteIssue() {

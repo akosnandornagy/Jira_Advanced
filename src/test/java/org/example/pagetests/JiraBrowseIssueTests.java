@@ -1,20 +1,17 @@
 package org.example.pagetests;
 
 import org.example.config.ConfigReader;
-import org.example.pagefactory.JiraBrowseIssuePage;
+import org.example.pagefactory.JiraIssuePage;
 import org.example.pagefactory.JiraLoginPage;
-import org.example.pagefactory.JiraLogoutPage;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.WebDriver;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class JiraBrowseIssueTests {
-    WebDriver driver;
-    private JiraLoginPage jiraLogin;
-    private JiraBrowseIssuePage jiraBrowseIssues;
+    private JiraIssuePage jiraBrowseIssues;
     private final String USERNAME = ConfigReader.getUsername();
     private final String PASSWORD = ConfigReader.getPassword();
 
@@ -24,7 +21,7 @@ public class JiraBrowseIssueTests {
         jiraLogin.navigateToLoginPage();
         jiraLogin.login(USERNAME, PASSWORD);
 
-        jiraBrowseIssues = new JiraBrowseIssuePage();
+        jiraBrowseIssues = new JiraIssuePage();
     }
     @ParameterizedTest
     @CsvFileSource(resources = "/jiraSuccessfulBrowseIssues.csv", numLinesToSkip = 1)
