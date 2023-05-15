@@ -6,13 +6,10 @@ import org.example.pagefactory.JiraLogoutPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class JiraLogoutTests {
-    WebDriver driver;
-    private JiraLoginPage jiraLogin;
     private JiraLogoutPage jiraLogout;
     private final String USERNAME = ConfigReader.getUsername();
     private final String PASSWORD = ConfigReader.getPassword();
