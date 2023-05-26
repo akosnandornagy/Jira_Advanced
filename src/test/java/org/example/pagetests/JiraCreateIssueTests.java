@@ -29,9 +29,6 @@ public class JiraCreateIssueTests {
         jiraCreateIssue.navigateToCreateIssuePage();
         jiraIssuePage = new JiraIssuePage();
 
-        // issue to be deleted = false
-        // in those tests where there is an issue successfully created set to 👉 true
-        // in teardown delete the created issues
     }
 
     @ParameterizedTest

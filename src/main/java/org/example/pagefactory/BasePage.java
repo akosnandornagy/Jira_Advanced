@@ -8,8 +8,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
-    // Apply baseUrl for all csv files 👇👇👇
-    protected String baseUrl = "https://jira-auto.codecool.metastage.net"; // also set this baseUrl from ConfigReader
+
+    protected String baseUrl = "https://jira-auto.codecool.metastage.net";
 
     public BasePage() {
         DriverManager driverManager = DriverManager.getInstance();
