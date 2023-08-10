@@ -28,18 +28,18 @@ public class JiraBrowseIssueTests {
     void browseSuccessfulIssueTests(String link, String issueId){
         jiraBrowseIssues.navigateToUrlOfIssue(link);
 
-        String expected = jiraBrowseIssues.getIssueId(); // instead rename according to feedback 👉 actual
+        String actual = jiraBrowseIssues.getIssueId();
 
-        assertEquals(expected, issueId);
+        assertEquals(issueId, actual);
     }
     @ParameterizedTest
     @CsvFileSource(resources = "/jiraUnsuccessfulBrowseIssues.csv", numLinesToSkip = 1)
     void browseUnsuccessfulIssueTests(String link, String errorMessage){
         jiraBrowseIssues.navigateToUrlOfIssue(link);
 
-        String expected = jiraBrowseIssues.errorMessage(); // instead rename according to feedback 👉 actual
+        String actual = jiraBrowseIssues.errorMessage();
 
-        assertEquals(expected, errorMessage);
+        assertEquals(errorMessage, actual);
     }
     @AfterEach
     public void tearDown() {
