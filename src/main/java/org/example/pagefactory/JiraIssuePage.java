@@ -30,7 +30,7 @@ public class JiraIssuePage extends BasePage {
     @FindBy(xpath = "//*[@id='delete-issue-submit']")
     private WebElement deleteIssueSubmit;
 
-    @FindBy(xpath = "//div[@id='aui-flag-container']//div[contains(@class, 'aui-message-success')")
+    @FindBy(xpath = "//div[@id='aui-flag-container']//div[contains(@class, 'aui-message-success')]")
     private WebElement successMessage;
 
     @FindBy(xpath = "//*[@id=\"issue-content\"]/div/div/h1")
@@ -70,6 +70,8 @@ public class JiraIssuePage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(moreDropdown)).click();
         wait.until(ExpectedConditions.elementToBeClickable(deleteLink)).click();
         wait.until(ExpectedConditions.elementToBeClickable(deleteIssueSubmit)).click();
+
+        wait.until(ExpectedConditions.visibilityOf(successMessage));
     }
 }
 

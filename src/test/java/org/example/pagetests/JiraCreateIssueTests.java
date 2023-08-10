@@ -18,6 +18,7 @@ public class JiraCreateIssueTests {
     private JiraIssuePage jiraIssuePage;
     private final String USERNAME = ConfigReader.getUsername();
     private final String PASSWORD = ConfigReader.getPassword();
+    private boolean issueToBeDeleted = false;
 
     @BeforeEach
     public void setUp() {
@@ -28,10 +29,6 @@ public class JiraCreateIssueTests {
         jiraCreateIssue = new JiraCreateIssuePage();
         jiraCreateIssue.navigateToCreateIssuePage();
         jiraIssuePage = new JiraIssuePage();
-
-        // issue to be deleted = false
-        // in those tests where there is an issue successfully created set to 👉 true
-        // in teardown delete the created issues
     }
 
     @ParameterizedTest
@@ -47,6 +44,8 @@ public class JiraCreateIssueTests {
         assertEquals(issueType, jiraIssuePage.getIssueType());
         assertEquals(summary, jiraIssuePage.getSummary());
         assertEquals(ConfigReader.getReporterName(), jiraIssuePage.getReporter());
+
+        issueToBeDeleted = true;
     }
 
     @Test
@@ -74,6 +73,11 @@ public class JiraCreateIssueTests {
 
     @AfterEach
     public void tearDown() {
+        if (issueToBeDeleted) {
+            jiraIssuePage.deleteIssue();
+            issueToBeDeleted = false;
+        }
+
         jiraCreateIssue.quitDriver();
     }
 }
