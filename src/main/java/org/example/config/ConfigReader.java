@@ -21,6 +21,10 @@ public class ConfigReader {
         }
     }
 
+    public static String getBaseUrl() {
+        return properties.getProperty("jira.baseUrl");
+    }
+
     public static String getUsername() {
         return properties.getProperty("jira.username");
     }

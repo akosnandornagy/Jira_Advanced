@@ -25,8 +25,8 @@ public class JiraBrowseIssueTests {
     }
     @ParameterizedTest
     @CsvFileSource(resources = "/jiraSuccessfulBrowseIssues.csv", numLinesToSkip = 1)
-    void browseSuccessfulIssueTests(String link, String issueId){
-        jiraBrowseIssues.navigateToUrlOfIssue(link);
+    void browseSuccessfulIssueTests(String relativeLink, String issueId){
+        jiraBrowseIssues.navigateToUrlOfIssue(relativeLink);
 
         String actual = jiraBrowseIssues.getIssueId();
 
@@ -34,8 +34,8 @@ public class JiraBrowseIssueTests {
     }
     @ParameterizedTest
     @CsvFileSource(resources = "/jiraUnsuccessfulBrowseIssues.csv", numLinesToSkip = 1)
-    void browseUnsuccessfulIssueTests(String link, String errorMessage){
-        jiraBrowseIssues.navigateToUrlOfIssue(link);
+    void browseUnsuccessfulIssueTests(String relativeLink, String errorMessage){
+        jiraBrowseIssues.navigateToUrlOfIssue(relativeLink);
 
         String actual = jiraBrowseIssues.errorMessage();
 
