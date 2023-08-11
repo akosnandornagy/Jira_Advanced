@@ -26,7 +26,7 @@ public class JiraCreateIssuePage extends BasePage {
     private WebElement errorMessage;
 
     public void navigateToCreateIssuePage() {
-        driver.get(baseUrl + "/secure/CreateIssue.jspa");
+        driver.get(baseUrl + "/CreateIssue.jspa");
     }
 
     public void selectProject(String projectName) {

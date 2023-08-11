@@ -23,24 +23,28 @@ public class JiraBrowseIssueTests {
 
         jiraBrowseIssues = new JiraIssuePage();
     }
+
     @ParameterizedTest
     @CsvFileSource(resources = "/jiraSuccessfulBrowseIssues.csv", numLinesToSkip = 1)
-    void browseSuccessfulIssueTests(String relativeLink, String issueId){
-        jiraBrowseIssues.navigateToUrlOfIssue(relativeLink);
+    void browseSuccessfulIssueTests(String issueId) {
+        jiraBrowseIssues.navigateToUrlOfIssue(issueId);
 
         String actual = jiraBrowseIssues.getIssueId();
 
         assertEquals(issueId, actual);
     }
+
     @ParameterizedTest
     @CsvFileSource(resources = "/jiraUnsuccessfulBrowseIssues.csv", numLinesToSkip = 1)
-    void browseUnsuccessfulIssueTests(String relativeLink, String errorMessage){
-        jiraBrowseIssues.navigateToUrlOfIssue(relativeLink);
+    void browseUnsuccessfulIssueTests(String issueId) {
+        jiraBrowseIssues.navigateToUrlOfIssue(issueId);
 
         String actual = jiraBrowseIssues.errorMessage();
+        String expectedErrorMessage = "You can't view this issue";
 
-        assertEquals(errorMessage, actual);
+        assertEquals(expectedErrorMessage, actual);
     }
+
     @AfterEach
     public void tearDown() {
         jiraBrowseIssues.quitDriver();

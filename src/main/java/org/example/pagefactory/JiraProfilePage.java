@@ -9,6 +9,10 @@ public class JiraProfilePage extends BasePage {
     @FindBy(xpath = "//dd[@id='up-d-username']")
     private WebElement usernameElement;
 
+    public void navigateToProfilePage() {
+        driver.get(baseUrl + "/ViewProfile.jspa");
+    }
+
     public String getUsernameText() {
         WebElement usernameElementVisible = wait.until(ExpectedConditions.visibilityOf(usernameElement));
         return usernameElementVisible.getText();

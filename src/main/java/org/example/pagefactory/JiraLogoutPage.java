@@ -13,7 +13,7 @@ public class JiraLogoutPage extends BasePage {
     private WebElement loginIcon;
 
     public void navigateToLogoutPage() {
-        driver.get(baseUrl + "/secure/Logout!default.jspa");
+        driver.get(baseUrl + "/Logout.jspa");
     }
     public void clickLogoutBtn(){
         wait.until(ExpectedConditions.visibilityOf(logoutBtn)).click();

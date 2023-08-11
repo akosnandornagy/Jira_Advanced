@@ -36,8 +36,8 @@ public class JiraIssuePage extends BasePage {
     @FindBy(xpath = "//*[@id=\"issue-content\"]/div/div/h1")
     private WebElement errorMessage;
 
-    public void navigateToUrlOfIssue(String relativeUrl) {
-        driver.get(baseUrl + relativeUrl);
+    public void navigateToUrlOfIssue(String issueId) {
+        driver.get(baseUrl + "/browse/" + issueId);
     }
 
     public String getProjectName() {
